@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+<script src="./javascripts/app.js"></script>
+<link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
+  <meta charset="utf-8">
+  <title>Node api tutorial</title>
+</head>
+<body>
+  <div id='app' ng-app='app' ng-controller='mainCtrl'>
+    <h1>Write your journal entry</h1>
+    <form ng-submit="createEntry()">
+	<input type="text" ng-model="formContent"></input>
+	<button type="submit">Add Journal Entry</button>
+    </form>
+    <div ng-repeat="entry in entrys">
+      <span class="glyphicon glyphicon-remove" ng-click="delete(entry)"></span>
+      {{entry.date}} <br>
+      {{entry.content}}
+    </div>
+  </div>
+
+</body>
+</html>
