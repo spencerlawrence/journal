@@ -4,20 +4,22 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
 <script src="./javascripts/app.js"></script>
 <link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   <meta charset="utf-8">
-  <title>Node api tutorial</title>
+  <title>Diary</title>
 </head>
 <body>
   <div id='app' ng-app='app' ng-controller='mainCtrl'>
-    <h1>Write your journal entry</h1>
+    <h1>Write your diary entry</h1>
     <form ng-submit="createEntry()">
 	<input type="text" ng-model="formContent"></input>
 	<button type="submit">Add Journal Entry</button>
+	<button id="delete">Delete All</button>
     </form>
-    <div ng-repeat="entry in entrys">
-      <span class="glyphicon glyphicon-remove" ng-click="delete(entry)"></span>
+    <div id='entries'  ng-repeat="entry in entrys">      
       {{entry.date}} <br>
-      {{entry.content}}
+      {{entry.content}}<br>
+      <hr><br>
     </div>
   </div>
 

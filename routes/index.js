@@ -44,6 +44,14 @@ router.post('/diary', function(req, res, next) {
     });
 });
 
+router.delete('/diary', function(req, res, next) {
+        console.log("In Delete Route");
+        collection.remove(function(err) {
+                if(err) return console.error(err);
+                else res.sendStatus(200);
+        });
+});
+
 module.exports = router;
 
 var diary = [

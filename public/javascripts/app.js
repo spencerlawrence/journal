@@ -32,10 +32,38 @@ function mainCtrl ($scope, diaryFetcher) {
     .then(function (data) {
       $scope.entrys = data
     })
+
   $scope.createEntry = function() {
       var formData = {date:Date(),content:$scope.formContent};
       console.log(formData);
       diaryFetcher.post(formData); // Send the data to the back end
       $scope.entrys.push(formData); // Update the model
-    }
-  };
+  }
+};
+
+$(document).ready(function(){
+
+$("#deleteComments").click(function(){
+	var url = "comment";
+	$.ajax({
+		url:url,
+		type: "DELETE",
+		success: function(data,textStatus) {
+			console.log(textStatus);
+			$("#comments").html('');
+			$("#json").html('');
+			$("#done").html('');
+		}
+	})
+});
+});
+
+
+
+
+
+
+
+
+
+
