@@ -12,12 +12,12 @@
   <div id='app' ng-app='app' ng-controller='mainCtrl'>
     <h1>Write your diary entry</h1>
     <form ng-submit="createEntry()">
-	<input type="text" ng-model="formContent"></input>
+	<textarea type="text" rows="5" cols="100" ng-model="formContent"></textarea><br>
 	<button type="submit">Add Journal Entry</button>
-	<button id="delete">Delete All</button>
-    </form>
-    <div id='entries'  ng-repeat="entry in entrys">      
-      {{entry.date}} <br>
+	<!--button id="delete">Delete All</button-->
+    </form><br><br>
+    <div id='entries'  ng-repeat="entry in entrys | orderBy:'-date'">      
+      <b>{{entry.date}}</b><br><br>
       {{entry.content}}<br>
       <hr><br>
     </div>
